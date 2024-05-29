@@ -1,0 +1,47 @@
+:root{
+    --color-primary: #007CEF;
+    --txt: #292929;
+    --btn-whatsapp: #00B443;
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Poppins", sans-serif;
+}
+
+
+main{
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    padding: 50px 0px;
+}
+
+
+.info-corretor{
+    flex: 1;
+    border: 1px solid red;
+    padding: 0px 20px ;
+
+}
+
+.corretor-img{
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    border: 3px solid var(--color-primary);
+
+}
+
+
+.form-contato{
+    flex: 1;
+    border: 1px solid green;
+    padding: 0px 20px ;
+}
