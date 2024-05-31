@@ -45,11 +45,7 @@ function formatar_telefone($telefone){
                if($resultQuery){
                  $corretor = mysqli_fetch_assoc($resultQuery);
                }
-               
-                
-
-
-                
+                               
                 
                  if(!empty($corretor["telefone_corretor"])){
                    $telefone = formatar_telefone($corretor["telefone_corretor"]);
@@ -130,7 +126,7 @@ function formatar_telefone($telefone){
 
                <div class="campo-form">
                   <label for="">Telefone</label>
-                  <input type="text" name="telefone" placeholder="(11) 9999-9999">
+                  <input type="text" name="telefone" placeholder="(11) 9999-9999" id="telefone">
                </div>
 
                <div class="campo-form">
@@ -147,6 +143,14 @@ function formatar_telefone($telefone){
 
 
      </main>
+
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.8/jquery.inputmask.min.js"></script>
+     <script>
+         $(document).ready(function(){
+            $("#telefone").inputmask('(99) 99999-9999')
+        })
+     </script>
 
           
 </body>
