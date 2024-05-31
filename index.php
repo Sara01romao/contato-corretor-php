@@ -4,9 +4,9 @@ include('db_config.php');
 
 function formatar_telefone($telefone){
     
-    $ddd = substr($telefone, 0, 2); //começa no 0 até o dois
-    $parte1 = substr($telefone, 2, 5);;//do 2 ate o 5
-    $parte2= substr($telefone, 7);//7 em diante
+    $ddd = substr($telefone, 0, 2); 
+    $parte1 = substr($telefone, 2, 5);
+    $parte2= substr($telefone, 7);
     return "($ddd) $parte1-$parte2";
   
   }
@@ -22,11 +22,15 @@ function formatar_telefone($telefone){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap" rel="stylesheet">
+
+    <!-- sweetalert-->
+    <script src=" https://cdn.jsdelivr.net/npm/sweetalert2@11.10.2/dist/sweetalert2.all.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.2/dist/sweetalert2.min.css" rel="stylesheet">
     
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Contato Corretor</title>
 </head>
 <body>
     
@@ -112,16 +116,16 @@ function formatar_telefone($telefone){
         <div class="form-contato">
             <img src="./img/ilustracao.png" alt="ilustraçao Casa">
 
-            <form action="" >
+            <form action="./api.php"  method="post">
 
                <div class="campo-form">
                   <label for="">Nome</label>
-                  <input type="text" name="nome" placeholder="Seu nome">
+                  <input type="text" name="nome" placeholder="Seu nome" id="nome">
                </div>
 
                <div class="campo-form">
                   <label for="">Email</label>
-                  <input type="email" name="email" placeholder="contato@exemplo.com">
+                  <input type="email" name="email" placeholder="contato@exemplo.com" id="email">
                </div>
 
                <div class="campo-form">
@@ -131,10 +135,10 @@ function formatar_telefone($telefone){
 
                <div class="campo-form">
                   <label for="">Mensagem</label>
-                  <textarea name="mensagem" id="" placeholder="Como posso te ajudar?"></textarea>
+                  <textarea name="mensagem"  placeholder="Como posso te ajudar?" id="mensagem"></textarea>
                </div>
 
-               <button type="submit">Enviar</button>
+               <button type="button" id="btnEnviar">Enviar</button>
 
             </form>
 
@@ -150,6 +154,45 @@ function formatar_telefone($telefone){
          $(document).ready(function(){
             $("#telefone").inputmask('(99) 99999-9999')
         })
+
+
+
+        $('#btnEnviar').on('click', function() {
+            var nome = document.getElementById("nome").value;
+            var email = document.getElementById("email").value;
+            var telefone = document.getElementById("telefone").value;
+            var mensagem = document.getElementById("mensagem").value;
+
+
+            var objMensagem = {
+                nome_contato: nome,
+                email_contato: email,
+                telefone_contato: telefone,
+                mensagem_contato: mensagem,
+            }
+
+
+            $.ajax({
+                    url: 'api.php',
+                    type: 'post',
+                    data: { dataMensagem: JSON.stringify(objMensagem )},
+
+                    success: function (response) {
+                      
+                        
+
+                        
+                        
+
+                      
+                    }
+
+               });
+
+
+            console.log(objMensagem);
+
+        });
      </script>
 
           
