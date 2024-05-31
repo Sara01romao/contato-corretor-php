@@ -62,7 +62,7 @@ function formatar_telefone($telefone){
 
              ?>
 
-            <div class="txt-corretor">
+            <div class="txt-corretor" id="cad-corretor" data-id="<?php echo $corretor["id_corretor"]; ?>">
                 <img class="corretor-img" src="./img/corretor-img.png" alt="corretor">
 
                 <div>
@@ -162,13 +162,16 @@ function formatar_telefone($telefone){
             var email = document.getElementById("email").value;
             var telefone = document.getElementById("telefone").value;
             var mensagem = document.getElementById("mensagem").value;
+            var idCorretor = document.getElementById('cad-corretor').getAttribute('data-id');
 
 
             var objMensagem = {
+                
                 nome_contato: nome,
                 email_contato: email,
                 telefone_contato: telefone,
                 mensagem_contato: mensagem,
+                idCorretor: idCorretor
             }
 
 
