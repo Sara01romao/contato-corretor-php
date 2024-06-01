@@ -104,6 +104,10 @@ h3{
     transition: 0.5s ease-in;
 }
 
+.email-btn:hover{
+   color: var(--color-primary);
+}
+
 
 .form-contato{
     flex: 1;
