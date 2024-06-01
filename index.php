@@ -130,7 +130,7 @@ function formatar_telefone($telefone){
 
                <div class="campo-form">
                   <label for="">Telefone</label>
-                  <input type="text" name="telefone" placeholder="(11) 9999-9999" id="telefone">
+                  <input type="text" name="telefone" placeholder="(00) 0000-0000" id="telefone">
                </div>
 
                <div class="campo-form">
@@ -158,12 +158,43 @@ function formatar_telefone($telefone){
 
 
         $('#btnEnviar').on('click', function() {
+
+            $('.erro-form').remove();
             var nome = document.getElementById("nome").value;
             var email = document.getElementById("email").value;
             var telefone = document.getElementById("telefone").value;
             var mensagem = document.getElementById("mensagem").value;
             var idCorretor = document.getElementById('cad-corretor').getAttribute('data-id');
+            
 
+            if (nome === "" || email === "" || telefone === "" || mensagem === "") {
+             
+
+                if (nome === ""){
+                    $("#nome").after('<small class="erro-form" style="color:red; font-size: 12px;">Preencha o campo corretamente</small>')
+
+                }  
+                
+                if (email === ""){
+                    $("#email").after('<small class="erro-form" style="color:red; font-size: 12px;">Preencha o campo corretamente</small>')
+
+                }
+
+                if (telefone === ""){
+                    $("#telefone").after('<small class="erro-form" style="color:red; font-size: 12px;">Preencha o campo corretamente</small>')
+
+                }
+
+                if (mensagem === ""){
+                    $("#mensagem").after('<small class="erro-form" style="color:red; font-size: 12px;">Preencha o campo corretamente</small>')
+
+                }
+
+                
+                return; 
+            }
+
+            
 
             var objMensagem = {
                 
@@ -181,19 +212,51 @@ function formatar_telefone($telefone){
                     data: { dataMensagem: JSON.stringify(objMensagem )},
 
                     success: function (response) {
-                      
-                        
 
-                        
+                        response = JSON.parse(response);
+                      
+                        const Toast = Swal.mixin({
+                        toast: true,
+                        position: "top-right",
+                        showConfirmButton: false,
+                        timer: 1500,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.onmouseenter = Swal.stopTimer;
+                            toast.onmouseleave = Swal.resumeTimer;
+                        }
+                        });
+
+                        if (response.status === 'ok') {
+                            Toast.fire({
+                                icon: "success",
+                                title: "Enviado com sucesso"
+                            });
+
+                            $('.erro-form').remove();
+                            document.getElementById("nome").value='';
+                            document.getElementById("email").value='';
+                            document.getElementById("telefone").value='';
+                            document.getElementById("mensagem").value='';
+            
+
+
+                        } else {
+                            Toast.fire({
+                                icon: "error",
+                                title: "Erro ao enviar"
+                            });
+                        }
                         
 
                       
                     }
 
+
+                    
+
                });
 
-
-            console.log(objMensagem);
 
         });
      </script>
