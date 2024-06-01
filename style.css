@@ -79,6 +79,7 @@ h3{
     text-decoration: none;
     margin: 10px 0px 20px ;
     color: var(--txt);
+    transition: 0.5s ease-in;
     
 
 }
@@ -88,9 +89,19 @@ h3{
     color: #fff;
 }
 
+.btn-whatsapp:hover{
+    background: #009537;
+    transition: 0.5s ease-in;
+}
+
 .btn-telefone{
     background: var(--color-primary);
     color: #fff;
+}
+
+.btn-telefone:hover{
+    background: #0061bb;
+    transition: 0.5s ease-in;
 }
 
 
@@ -154,4 +165,12 @@ h3{
     font-weight: bold;
     font-size: 16px;
     border-radius: 4px;
+    cursor: pointer;
+    transition: 0.5s ease-in;
+}
+
+.form-contato button:hover{
+    background: #0061bb;
+    transition: 0.5s ease-in;
+
 }
