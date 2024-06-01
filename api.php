@@ -14,19 +14,20 @@ if(isset($_POST['dataMensagem'])){
 
     
     $contato = preg_replace("/[^0-9]/", "", $telefone); 
-    echo $contato;
+    
 
     
     $sqlMensagem = "INSERT INTO mensagem (nome_contato, email_contato, telefone_contato, mensagem_contato, data_hora_contato, id_corretor_mensagem) VALUES ('$nome', '$email', '$contato', '$mensagem', NOW(), '$idCorretor')";
 
      $resultMensagem = mysqli_query($con, $sqlMensagem);
 
-    //  if($resultMensagem){
+     if ($resultMensagem) {
+        $response['status'] = 'ok';
+    } else {
+        $response['status'] = 'erro';
+    }
 
-    //     echo "ok";
-    //  }else{
-    //     echo "erro";
-    //  }
+    echo json_encode($response);
 
     
 
