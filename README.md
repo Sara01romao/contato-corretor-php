@@ -18,6 +18,7 @@ seja necessário no futuro.
 <br>
 
 
+
 ## :rocket: Tecnologias Usadas
 UI/UX
 ```
@@ -37,6 +38,11 @@ SweetAlert
   PHP
   MySQL
 ```
+<p align="center">
+  <img max-width="auto" height="auto"  src="https://github.com/Sara01romao/contato-corretor-php/assets/46323667/52300ed5-9111-46a4-8830-429316d0b9b3">
+</p> 
+
+
 ## 🎲 Banco de dados 
 
 Tabela Corretor
