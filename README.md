@@ -2,6 +2,11 @@
   <img max-width="auto" height="auto"  src="https://github.com/Sara01romao/contato-corretor-php/assets/46323667/b166a831-4b98-4e45-99c1-fc9d61dc458a">
 </p> 
 
+<p align="center">
+  <img max-width="auto" height="auto"  src="https://github.com/Sara01romao/contato-corretor-php/assets/46323667/52300ed5-9111-46a4-8830-429316d0b9b3">
+</p> 
+
+
 
 
 
@@ -38,11 +43,6 @@ SweetAlert
   PHP
   MySQL
 ```
-<p align="center">
-  <img max-width="auto" height="auto"  src="https://github.com/Sara01romao/contato-corretor-php/assets/46323667/52300ed5-9111-46a4-8830-429316d0b9b3">
-</p> 
-
-
 ## 🎲 Banco de dados 
 
 Tabela Corretor
